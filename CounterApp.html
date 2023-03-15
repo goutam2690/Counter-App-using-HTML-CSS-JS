@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        #input{
+            width: 30px;
+            height: 25px;
+        }
+        #heading{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #first{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .reset{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .total{
+            width:300px;
+            border: 2px solid lightgrey;
+            margin-left: 460px;
+            margin-top: 200px;
+        }
+        #showResult{
+            font-size: 25px;
+            padding: 5px 15px;
+            border: 1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="total">
+        <h1 id="heading">Counter App</h1>
+        <div id="first">
+            <button id="decrement">Decrement by 1</button>
+            <span id="showResult">0</span>
+            <button id="increment">Increment by 1</button>
+        </div>
+        <div class="reset">
+            <button id="resetValue">Reset Value</button>
+        </div>
+
+    </div>
+
+    <script>
+        const decrementBtn = document.getElementById("decrement")
+        const incrementBtn = document.getElementById("increment")
+        const resetValueBtn = document.getElementById("resetValue")
+        const showResult = document.getElementById("showResult")
+
+        decrementBtn.addEventListener("click",()=>{
+            const value = Number(showResult.innerText);
+            if(value > 0){
+                showResult.innerText = value - 1;
+            }else{
+                alert("Negative Values are not aloowed")
+            }
+        });
+
+        incrementBtn.addEventListener("click",()=>{
+            const value = Number(showResult.innerText);
+            if(value >= 100000){
+                alert("10+ values are not allowed")
+            }else{
+                showResult.innerText = value + 1;
+            }
+        });
+
+        resetValueBtn.addEventListener("click",()=>{
+            showResult.innerText = "0";
+        })
+
+
+
+
+     
+    </script>
+</body>
+</html>
